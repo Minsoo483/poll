@@ -32,8 +32,19 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('poll:results', args=(question.id,)))
 
 
-
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     context = {'question': question}
     return render(request, 'poll/results.html', context)
+
+
+def val_jq(request):
+    return render(request, 'poll/val_jq.html')
+
+
+def parent_jq(request):
+    return render(request, 'poll/parent_jq.html')
+
+
+def submenu(request):
+    return render(request, 'poll/submenu.html')
